@@ -1,0 +1,17 @@
+Package: SurvSetup
+Type: Package
+Title: Finds Spell Features that are Useful for Estimating Survival Models
+Description: Finds spell features that are useful for estimating survival models
+    including spell IDs, spell durations, and binary event variables. All
+    functions assume that observations in a spell are equally spaced in time.
+Version: 0.1.0
+Authors@R: c(
+    person("Christopher", "Gandrud", email = "christopher.gandrud@gmail.com",
+    role = c("aut", "cre"))
+    )
+BugReports: https://github.com/christophergandrud/fredr/issues
+License: GPL (>= 3)
+Imports:
+    dplyr
+LazyData: TRUE
+RoxygenNote: 5.0.1
