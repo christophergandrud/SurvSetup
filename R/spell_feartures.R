@@ -10,6 +10,14 @@
 #' as right-censored, i.e. coded as \code{0}. If \code{FALSE} the the final
 #' observation is treated as an event.
 #'
+#' @details Note: assumes that \code{var} is in time order and that observations
+#' are equally spaced in time.
+#'
+#' @return Four columns in addition to the original data frame of the
+#' \code{spell_id}, a binary \code{spell_event} variable, as well as
+#' \code{spell_time1} and \code{spell_time2} with the interval start and
+#' end times within each spell.
+#'
 #' @examples
 #' # Create fake data
 #' group_id <- c(rep('aa', 7), rep('bb', 4))

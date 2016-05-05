@@ -20,9 +20,19 @@ spell features within groups.}
 as right-censored, i.e. coded as \code{0}. If \code{FALSE} the the final
 observation is treated as an event.}
 }
+\value{
+Four columns in addition to the original data frame of the
+\code{spell_id}, a binary \code{spell_event} variable, as well as
+\code{spell_time1} and \code{spell_time2} with the interval start and
+end times within each spell.
+}
 \description{
 Find features of a spell that are useful for estimating survival models
 with interval censored observations
+}
+\details{
+Note: assumes that \code{var} is in time order and that observations
+are equally spaced in time.
 }
 \examples{
 # Create fake data
