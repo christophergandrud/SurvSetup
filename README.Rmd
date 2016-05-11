@@ -1,3 +1,32 @@
 # SurvSetup
 
-Finds Spell Features that are Useful for Estimating Survival Models
+Finds features of spells that are useful for estimating survival models.
+
+[![Build Status](https://travis-ci.org/christophergandrud/SurvSetup.svg?branch=master)](https://travis-ci.org/christophergandrud/SurvSetup)
+
+## Examples
+
+```{r}
+library(SurvSetup)
+
+# Create fake data ----------------------------------------------
+group_id <- c(rep('aa', 7), rep('bb', 4))
+x <- c(rep('a', 4), rep('b', 3), 'c', rep('a', 2), 'c')
+Data <- data.frame(group_id = group_id, spell = x,
+                   value = rnorm(n = length(x)))
+
+head(data)
+
+# Find spell features -------------------------------------------
+
+## Non-grouped data
+spell_features(Data, var = 'spell')
+
+## Grouped data
+spell_features(Data, var = 'spell', group = 'group_id')
+
+
+## Last observation treated as an event (e.g. not right-censored)
+spell_features(Data, var = 'spell', group = 'group_id',
+               right_censored = FALSE)
+```

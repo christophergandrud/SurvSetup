@@ -16,6 +16,9 @@ spell_id <- function(x) {
     temp <- data.frame(x = x, x1 = c(NA, x[-length(x)]),
                        stringsAsFactors = FALSE)
 
+    if (any(is.na(temp$x))) stop('Missing values are not permitted.',
+                                 call. = FALSE)
+
     # Find spell ID
     temp$spell_id[is.na(temp$x1)] <- 1
 
