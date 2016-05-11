@@ -38,8 +38,7 @@ are equally spaced in time.
 # Create fake data
 group_id <- c(rep('aa', 7), rep('bb', 4))
 x <- c(rep('a', 4), rep('b', 3), 'c', rep('a', 2), 'c')
-fake_data <- data.frame(group_id = group_id, spell = x,
-                   value = rnorm(n = length(x)))
+fake_data <- data.frame(group_id = group_id, spell = x)
 
 # Find spell features
 spell_features(fake_data, var = 'spell')
