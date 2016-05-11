@@ -96,3 +96,31 @@ spell_event <- function(x, right_censored = TRUE) {
 
     return(out)
 }
+
+
+#' Mark new spell as events
+#'
+#' @param x a time ordered vector with values identifying a spell. It is
+#' assumed that when a value in this vector changes that the spell has ended.
+#'
+#' @return a vector of event codes for each observation in \code{x}.
+#' \code{0} indicates that there was no spell change. \code{1} indicates a new
+#' spell.
+#'
+#'
+#' @examples
+#' x <- c(rep('a', 4), rep('b', 3), 'c', rep('a', 2), 'c')
+#' spell_new(x)
+#'
+#' @export
+
+spell_new <- function(x) {
+    ids <- spell_id(x)
+    temp <- data.frame(spell = ids, spell1 = c(NA, ids[-length(ids)]),
+                       event_post = 0)
+    temp$event_post[temp[, 1] != temp[, 2]] <- 1
+
+    out <- temp$event_post
+
+    return(out)
+}
