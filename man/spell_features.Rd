@@ -38,13 +38,13 @@ are equally spaced in time.
 # Create fake data
 group_id <- c(rep('aa', 7), rep('bb', 4))
 x <- c(rep('a', 4), rep('b', 3), 'c', rep('a', 2), 'c')
-Data <- data.frame(group_id = group_id, spell = x,
+fake_data <- data.frame(group_id = group_id, spell = x,
                    value = rnorm(n = length(x)))
 
 # Find spell features
-spell_features(Data, var = 'spell')
-spell_features(Data, var = 'spell', group = 'group_id')
-spell_features(Data, var = 'spell', group = 'group_id',
+spell_features(fake_data, var = 'spell')
+spell_features(fake_data, var = 'spell', group = 'group_id')
+spell_features(fake_data, var = 'spell', group = 'group_id',
                right_censored = FALSE)
 
 }
